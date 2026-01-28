@@ -28,7 +28,12 @@ public class CheckoutSolution {
         }
 
         int numberOfA = skuCount.get("A") == null ? 0 : skuCount.get("A");
-        if (numberOfA >= 3) {
+        if (numberOfA >= 5) {
+            int numberOfOffer = numberOfA / 5;
+            int numberOfFullPrice = numberOfA % 5;
+            offerA = numberOfOffer * 200;
+            fullPriceA = numberOfFullPrice * prices.get("A");
+        } else if (numberOfA >= 3) {
             int numberOfOffer = numberOfA / 3;
             int numberOfFullPrice = numberOfA % 3;
             offerA = numberOfOffer * 130;
@@ -69,6 +74,7 @@ public class CheckoutSolution {
         pricesPopulated.put("B", 30);
         pricesPopulated.put("C", 20);
         pricesPopulated.put("D", 15);
+        pricesPopulated.put("E", 40);
         return pricesPopulated;
     }
 
@@ -78,8 +84,3 @@ public class CheckoutSolution {
 
 
 }
-
-
-
-
-
