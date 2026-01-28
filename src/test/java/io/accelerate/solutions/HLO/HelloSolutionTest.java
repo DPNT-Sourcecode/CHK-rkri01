@@ -9,9 +9,7 @@ public class HelloSolutionTest {
 
     @Test
     public void helloTest(){
-        assertThat(hloSolution.)
+        assertThat(hloSolution.hello("World"), equals())
         throw new UnsupportedOperationException();
     }
 }
-
-
