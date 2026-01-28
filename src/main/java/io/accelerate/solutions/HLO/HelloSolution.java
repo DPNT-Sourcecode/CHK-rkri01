@@ -4,11 +4,12 @@ public class HelloSolution {
     public String hello(String friendName) {
         if (friendName != null) {
             if (!friendName.isEmpty()) {
-                return "Hello, World!";
+                return "Hello, John!";
             }
         }
-        return "Hello, World!";
+        return "Hello!";
     }
 }
+
 
 
