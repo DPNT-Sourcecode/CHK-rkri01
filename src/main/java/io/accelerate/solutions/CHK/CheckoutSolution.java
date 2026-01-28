@@ -9,6 +9,7 @@ public class CheckoutSolution {
     public HashMap<String, Integer> prices = populatePrices();
 
     public Integer checkout(String skus) {
+        boolean illegalInput = false;
         Map<String, Integer> skuCount = new HashMap<>();
         int offerA = 0;
         int fullPriceA = 0;
@@ -20,7 +21,7 @@ public class CheckoutSolution {
         for (int i = 0; i < skus.length(); i++) {
             String letter = skus.substring(i, i+1);
             if (!letter.equals("A") || !letter.equals("B") || !letter.equals("C") || !letter.equals("D")){
-                return -1;
+                illegalInput = true;
             }
             skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
         }
@@ -49,7 +50,9 @@ public class CheckoutSolution {
         priceForC = getPriceForSku(skuCount, prices, "C");
         priceForD = getPriceForSku(skuCount, prices, "D");
 
-        return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD;
+        if (illegalInput == false) {
+            return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD;
+        } else return -1;
 
     }
 
@@ -74,6 +77,7 @@ public class CheckoutSolution {
 
 
 }
+
 
 
 
