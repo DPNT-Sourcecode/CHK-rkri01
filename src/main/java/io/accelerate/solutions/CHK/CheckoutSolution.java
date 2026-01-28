@@ -19,7 +19,9 @@ public class CheckoutSolution {
 
         for (int i = 0; i < skus.length(); i++) {
             String letter = skus.substring(i, i+1);
-            if (!letter.equals("A"))
+            if (!letter.equals("A") || !letter.equals("B") || !letter.equals("C") || !letter.equals("D")){
+                return -1;
+            }
             skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
         }
 
@@ -72,5 +74,6 @@ public class CheckoutSolution {
 
 
 }
+
 
 
