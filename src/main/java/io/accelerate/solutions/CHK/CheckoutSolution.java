@@ -27,7 +27,7 @@ public class CheckoutSolution {
         }
 
 
-        int numberOfA = skuCount.get("A");
+        int numberOfA = skuCount.get("A") == null ? 0 : skuCount.get("A");
         if (numberOfA > 3) {
             int numberOfOffer = numberOfA / 3;
             int numberOfFullPrice = numberOfA % 3;
@@ -36,7 +36,7 @@ public class CheckoutSolution {
 
         }
 
-        int numberOfB = skuCount.get("B");
+        int numberOfB = skuCount.get("B") == null ? 0 : skuCount.get("B") ;
         if (numberOfB > 2) {
             int numberOfOffer = numberOfB / 2;
             int numberOfFullPrice = numberOfB % 2;
@@ -53,7 +53,7 @@ public class CheckoutSolution {
 
     private int getPriceForSku(Map<String, Integer> skuCount, HashMap<String, Integer> prices, String letter){
         if (skuCount == null) return -1;
-        int number = skuCount.get(letter);
+        int number = skuCount.get(letter) == null ? 0 : skuCount.get(letter);
         return number * prices.get(letter);
     }
 
@@ -72,3 +72,4 @@ public class CheckoutSolution {
 
 
 }
+
