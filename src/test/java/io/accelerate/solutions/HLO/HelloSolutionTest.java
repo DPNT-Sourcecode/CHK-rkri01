@@ -9,7 +9,7 @@ public class HelloSolutionTest {
 
     @Test
     public void helloTest(){
-        assertThat(hloSolution.hello("World"), equals())
-        throw new UnsupportedOperationException();
+        assertThat(hloSolution.hello("World"), equals("Hello World!"));
     }
 }
+
