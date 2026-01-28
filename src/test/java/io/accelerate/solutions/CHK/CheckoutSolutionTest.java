@@ -25,4 +25,20 @@ public class CheckoutSolutionTest {
     public void checkoutTest2(){
         assertThat(checkoutSolution.checkout("AAAB"), equalTo(160));
     }
+
+    @Test
+    public void checkoutTest3(){
+        assertThat(checkoutSolution.checkout("AAABC"), equalTo(180));
+    }
+
+    @Test
+    public void checkoutTest4(){
+        assertThat(checkoutSolution.checkout("AAABCD"), equalTo(195));
+    }
+
+    @Test
+    public void checkoutTest5(){
+        assertThat(checkoutSolution.checkout("AAA2BCD"), equalTo(-1));
+    }
 }
+
