@@ -19,7 +19,3 @@ public class HelloSolutionTest {
         assertThat(hloSolution.hello("name"), equalTo("Hello World!"));
     }
 }
-
-
-
-
