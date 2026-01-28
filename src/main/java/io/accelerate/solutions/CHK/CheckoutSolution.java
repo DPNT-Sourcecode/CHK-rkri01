@@ -17,7 +17,7 @@ public class CheckoutSolution {
         int priceForC = 0;
         int priceForD = 0;
 
-        for (int i = 0; i < skus.length() - 1; i++) {
+        for (int i = 0; i < skus.length(); i++) {
             String letter = skus.substring(i, i+1);
             skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
         }
@@ -67,3 +67,4 @@ public class CheckoutSolution {
 
 
 }
+
