@@ -31,25 +31,23 @@ public class CheckoutSolution {
         }
 
 
-        if (skuCount != null) {
-            int numberOfA = skuCount.get("A");
-            if (numberOfA > 3) {
-                int numberOfOffer = numberOfA / 3;
-                int numberOfFullPrice = numberOfA % 3;
-                offerA = numberOfOffer * 130;
-                fullPriceA = numberOfFullPrice * prices.get("A");
+        int numberOfA = skuCount.get("A");
+        if (numberOfA > 3) {
+            int numberOfOffer = numberOfA / 3;
+            int numberOfFullPrice = numberOfA % 3;
+            offerA = numberOfOffer * 130;
+            fullPriceA = numberOfFullPrice * prices.get("A");
 
-            }
+        }
 
-            int numberOfB = skuCount.get("B");
-            if (numberOfB > 2) {
-                int numberOfOffer = numberOfB / 2;
-                int numberOfFullPrice = numberOfB % 2;
-                offerB = numberOfOffer * 45;
-                fullPriceB = numberOfFullPrice * prices.get("B");
+        int numberOfB = skuCount.get("B");
+        if (numberOfB > 2) {
+            int numberOfOffer = numberOfB / 2;
+            int numberOfFullPrice = numberOfB % 2;
+            offerB = numberOfOffer * 45;
+            fullPriceB = numberOfFullPrice * prices.get("B");
 
-            }
-        } else return -1;
+        }
         priceForC = getPriceForSku(skuCount, prices, "C");
         priceForD = getPriceForSku(skuCount, prices, "D");
 
@@ -60,8 +58,7 @@ public class CheckoutSolution {
     private int getPriceForSku(Map<String, Integer> skuCount, HashMap<String, Integer> prices, String letter){
         if (skuCount == null) return -1;
         int number = skuCount.get(letter);
-        int price = number * prices.get(letter);
-        return price;
+        return number * prices.get(letter);
     }
 
     private static HashMap<String, Integer> populatePrices() {
@@ -79,6 +76,7 @@ public class CheckoutSolution {
 
 
 }
+
 
 
 
