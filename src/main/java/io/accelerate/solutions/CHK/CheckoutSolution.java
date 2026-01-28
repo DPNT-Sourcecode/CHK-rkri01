@@ -7,10 +7,11 @@ import java.util.Map;
 
 public class CheckoutSolution {
 
-    private HashMap<String, Integer> prices ;
-
     public Integer checkout(String skus) {
+        HashMap<String, Integer> prices = populatePrices();
+
         Map<String, Integer> skuCount = new HashMap<>();
+
         for (char c : skus.toCharArray()) {
             if (!Character.isLetter(c)) {
                 return -1;
@@ -19,14 +20,49 @@ public class CheckoutSolution {
                 skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
             }
         }
+
+        int offerA = 0;
+        int fullPriceA = 0;
+        int numberOfA = skuCount.get("A");
+        if (numberOfA > 3) {
+            int numberOfOffer = numberOfA / 3;
+            int numberOfFullPrice = numberOfA % 3;
+             offerA = numberOfOffer * 130;
+             fullPriceA = numberOfFullPrice * prices.get("A");
+
+        }
+        int offerB = 0;
+        int fullPriceB = 0;
+        int numberOfB = skuCount.get("B");
+        if (numberOfB > 2) {
+            int numberOfOffer = numberOfB / 2;
+            int numberOfFullPrice = numberOfB % 2;
+            offerB = numberOfOffer * 45;
+            fullPriceB = numberOfFullPrice * prices.get("B");
+
+        }
+        int priceForC = getPriceForSku(skuCount, prices, "C");
+        int priceForD = getPriceForSku(skuCount, prices, "D");
+
+        return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD;
+
     }
 
-    private HashMap<String, Integer> populatePrices(HashMap<String, Integer> prices) {
+    private int getPriceForSku(Map<String, Integer> skuCount, HashMap<String, Integer> prices, String letter){
+        int number = skuCount.get(letter);
+        int price = number * prices.get(letter);
+        return price;
+    }
+
+    private HashMap<String, Integer> populatePrices() {
         HashMap<String, Integer> pricesPopulated = new HashMap<>();
         pricesPopulated.put("A", 50);
         pricesPopulated.put("B", 50);
         pricesPopulated.put("C", 50);
         pricesPopulated.put("D", 15);
-
+        return pricesPopulated;
     }
+
+
 }
+
