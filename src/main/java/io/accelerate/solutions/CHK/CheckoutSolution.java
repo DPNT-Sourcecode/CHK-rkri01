@@ -17,16 +17,15 @@ public class CheckoutSolution {
         int priceForC = 0;
         int priceForD = 0;
 
-        for (char c : skus.toCharArray()) {
-            
-            if (!Character.isLetter(c)) {
+        for (int i = 0; i < skus.length(); i++) {
+            String letter = String.valueOf(skus.charAt(i));
+
+            if (!Character.isLetter(letter)) {
                 return -1;
             } else {
-                String letter = String.valueOf(c);
                 skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
             }
         }
-
 
         int numberOfA = skuCount.get("A") == null ? 0 : skuCount.get("A");
         if (numberOfA > 3) {
@@ -73,5 +72,6 @@ public class CheckoutSolution {
 
 
 }
+
 
 
