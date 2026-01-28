@@ -18,6 +18,7 @@ public class CheckoutSolution {
         int priceForD = 0;
 
         for (char c : skus.toCharArray()) {
+            
             if (!Character.isLetter(c)) {
                 return -1;
             } else {
@@ -72,4 +73,5 @@ public class CheckoutSolution {
 
 
 }
+
 
