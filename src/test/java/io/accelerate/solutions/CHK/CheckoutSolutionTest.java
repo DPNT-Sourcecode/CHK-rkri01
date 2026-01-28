@@ -21,5 +21,3 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("AAA"), equalTo(130));
     }
 }
-
-

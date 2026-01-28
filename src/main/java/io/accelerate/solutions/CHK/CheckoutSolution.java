@@ -6,11 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CheckoutSolution {
-    public HashMap<String, Integer> prices = new HashMap<>();
-
-    static {
-        populatePrices();
-    }
+    public HashMap<String, Integer> prices = populatePrices();
 
     public Integer checkout(String skus) {
         Map<String, Integer> skuCount = new HashMap<>();
@@ -76,8 +72,3 @@ public class CheckoutSolution {
 
 
 }
-
-
-
-
-
