@@ -40,5 +40,21 @@ public class CheckoutSolutionTest {
     public void checkoutTest5(){
         assertThat(checkoutSolution.checkout("AAA2BCD"), equalTo(-1));
     }
+    @Test
+    public void checkoutTest6(){
+        assertThat(checkoutSolution.checkout("A"), equalTo(50));
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
+
 
