@@ -14,6 +14,12 @@ public class CheckoutSolution {
 
     public Integer checkout(String skus) {
         Map<String, Integer> skuCount = new HashMap<>();
+        int offerA = 0;
+        int fullPriceA = 0;
+        int offerB = 0;
+        int fullPriceB = 0;
+        int priceForC = 0;
+        int priceForD = 0;
 
         for (char c : skus.toCharArray()) {
             if (!Character.isLetter(c)) {
@@ -24,8 +30,7 @@ public class CheckoutSolution {
             }
         }
 
-        int offerA = 0;
-        int fullPriceA = 0;
+
         int numberOfA = skuCount.get("A");
         if (numberOfA > 3) {
             int numberOfOffer = numberOfA / 3;
@@ -34,8 +39,7 @@ public class CheckoutSolution {
              fullPriceA = numberOfFullPrice * prices.get("A");
 
         }
-        int offerB = 0;
-        int fullPriceB = 0;
+
         int numberOfB = skuCount.get("B");
         if (numberOfB > 2) {
             int numberOfOffer = numberOfB / 2;
@@ -44,8 +48,8 @@ public class CheckoutSolution {
             fullPriceB = numberOfFullPrice * prices.get("B");
 
         }
-        int priceForC = getPriceForSku(skuCount, prices, "C");
-        int priceForD = getPriceForSku(skuCount, prices, "D");
+        priceForC = getPriceForSku(skuCount, prices, "C");
+        priceForD = getPriceForSku(skuCount, prices, "D");
 
         return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD;
 
@@ -72,5 +76,6 @@ public class CheckoutSolution {
 
 
 }
+
 
 
