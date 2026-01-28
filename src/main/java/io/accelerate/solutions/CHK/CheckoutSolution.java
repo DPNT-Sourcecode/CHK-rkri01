@@ -11,9 +11,9 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
         Map<String, Integer> skuCount = new HashMap<>();
         int offerA = 0;
-        int numberOfFullPriceA = 0;
+        int fullPriceA = 0;
         int offerB = 0;
-        int numberOfFullPriceB = 0;
+        int fullPriceB = 0;
         int priceForC = 0;
         int priceForD = 0;
 
@@ -27,8 +27,9 @@ public class CheckoutSolution {
             int numberOfOffer = numberOfA / 3;
             int numberOfFullPrice = numberOfA % 3;
             offerA = numberOfOffer * 130;
-//            fullPriceA = numberOfFullPrice * prices.get("A");
-
+            fullPriceA = numberOfFullPrice * prices.get("A");
+        }  else {
+            fullPriceA = getPriceForSku(skuCount, prices, "A");
         }
 
         int numberOfB = skuCount.get("B") == null ? 0 : skuCount.get("B") ;
@@ -36,15 +37,16 @@ public class CheckoutSolution {
             int numberOfOffer = numberOfB / 2;
             int numberOfFullPrice = numberOfB % 2;
             offerB = numberOfOffer * 45;
-//            fullPriceB = numberOfFullPrice * prices.get("B");
+            fullPriceB = numberOfFullPrice * prices.get("B");
 
+        } else {
+            fullPriceB = getPriceForSku(skuCount, prices, "B");
         }
-        numberOfFullPriceA = getPriceForSku(skuCount, prices, "A");
-        numberOfFullPriceB = getPriceForSku(skuCount, prices, "B");
+
         priceForC = getPriceForSku(skuCount, prices, "C");
         priceForD = getPriceForSku(skuCount, prices, "D");
 
-        return offerA + numberOfFullPriceA + offerB + numberOfFullPriceB + priceForC + priceForD;
+        return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD;
 
     }
 
@@ -57,8 +59,8 @@ public class CheckoutSolution {
     private static HashMap<String, Integer> populatePrices() {
         HashMap<String, Integer> pricesPopulated = new HashMap<>();
         pricesPopulated.put("A", 50);
-        pricesPopulated.put("B", 50);
-        pricesPopulated.put("C", 50);
+        pricesPopulated.put("B", 30);
+        pricesPopulated.put("C", 20);
         pricesPopulated.put("D", 15);
         return pricesPopulated;
     }
@@ -69,3 +71,4 @@ public class CheckoutSolution {
 
 
 }
+
