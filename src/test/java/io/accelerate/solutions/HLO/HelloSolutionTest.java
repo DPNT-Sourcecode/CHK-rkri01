@@ -6,7 +6,8 @@ public class HelloSolutionTest {
     private HelloSolution hloSolution;
 
     @Test
-    public void helloTest(String friendName){
+    public void helloTest(){
         throw new UnsupportedOperationException();
     }
 }
+
