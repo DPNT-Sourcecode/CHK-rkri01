@@ -20,10 +20,11 @@ public class CheckoutSolution {
 
         for (int i = 0; i < skus.length(); i++) {
             String letter = skus.substring(i, i+1);
-            if (!letter.equals("A") || !letter.equals("B") || !letter.equals("C") || !letter.equals("D")){
+            if (letter.equals("A") || letter.equals("B") || letter.equals("C") || letter.equals("D")) {
+                skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
+            } else {
                 illegalInput = true;
             }
-            skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
         }
 
         int numberOfA = skuCount.get("A") == null ? 0 : skuCount.get("A");
@@ -77,6 +78,7 @@ public class CheckoutSolution {
 
 
 }
+
 
 
 
