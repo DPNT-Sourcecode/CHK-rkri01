@@ -23,7 +23,7 @@ public class CheckoutSolution {
         }
 
         int numberOfA = skuCount.get("A") == null ? 0 : skuCount.get("A");
-        if (numberOfA > 3) {
+        if (numberOfA >= 3) {
             int numberOfOffer = numberOfA / 3;
             int numberOfFullPrice = numberOfA % 3;
             offerA = numberOfOffer * 130;
@@ -32,7 +32,7 @@ public class CheckoutSolution {
         }
 
         int numberOfB = skuCount.get("B") == null ? 0 : skuCount.get("B") ;
-        if (numberOfB > 2) {
+        if (numberOfB >= 2) {
             int numberOfOffer = numberOfB / 2;
             int numberOfFullPrice = numberOfB % 2;
             offerB = numberOfOffer * 45;
@@ -67,4 +67,5 @@ public class CheckoutSolution {
 
 
 }
+
 
