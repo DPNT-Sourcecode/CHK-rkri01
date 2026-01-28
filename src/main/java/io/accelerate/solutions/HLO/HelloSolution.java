@@ -1,13 +1,13 @@
 package io.accelerate.solutions.HLO;
 
-import io.accelerate.runner.SolutionNotImplementedException;
-import org.junit.platform.commons.util.StringUtils;
-
 public class HelloSolution {
     public String hello(String friendName) {
-        if (StringUtils.isNotBlank(friendName)){
-            return "Hello " + friendName + "!";
+        if (friendName != null) {
+            if (!friendName.isEmpty()) {
+                return "Hello " + friendName + "!";
+            }
         }
-        else throw new IllegalArgumentException();
+        return "Please enter a name.";
     }
 }
+
