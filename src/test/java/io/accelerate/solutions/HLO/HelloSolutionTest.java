@@ -1,6 +1,6 @@
 package io.accelerate.solutions.HLO;
 
-import io.accelerate.solutions.SUM.SumSolution;
+import static org.hamcrest.Matchers.equalTo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,8 +16,9 @@ public class HelloSolutionTest {
 
     @Test
     public void helloTest(){
-        assertThat(hloSolution.hello("World"), equals("Hello World!"));
+        assertThat(hloSolution.hello("World"), equalTo("Hello World!"));
     }
 }
+
 
 
