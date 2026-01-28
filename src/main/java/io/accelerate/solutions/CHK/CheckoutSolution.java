@@ -6,10 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CheckoutSolution {
+    public HashMap<String, Integer> prices = new HashMap<>();
+
+    static {
+        populatePrices();
+    }
 
     public Integer checkout(String skus) {
-        HashMap<String, Integer> prices = populatePrices();
-
         Map<String, Integer> skuCount = new HashMap<>();
 
         for (char c : skus.toCharArray()) {
@@ -54,7 +57,7 @@ public class CheckoutSolution {
         return price;
     }
 
-    private HashMap<String, Integer> populatePrices() {
+    private static HashMap<String, Integer> populatePrices() {
         HashMap<String, Integer> pricesPopulated = new HashMap<>();
         pricesPopulated.put("A", 50);
         pricesPopulated.put("B", 50);
@@ -63,6 +66,11 @@ public class CheckoutSolution {
         return pricesPopulated;
     }
 
+    public HashMap<String, Integer> getPrices() {
+        return this.prices;
+    }
+
 
 }
+
 

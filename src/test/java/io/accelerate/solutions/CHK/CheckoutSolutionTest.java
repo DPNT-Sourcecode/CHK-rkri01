@@ -13,6 +13,7 @@ public class CheckoutSolutionTest {
     @BeforeEach
     public void setUp() {
         checkoutSolution = new CheckoutSolution();
+        checkoutSolution.getPrices();
     }
 
     @Test
@@ -20,4 +21,5 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("AAA"), equalTo(130));
     }
 }
+
 
