@@ -17,13 +17,25 @@ public class CheckoutSolution {
         int fullPriceB = 0;
         int priceForC = 0;
         int priceForD = 0;
+        int priceForE = 0;
+        int offerA2 = 0;
+        int fullPriceA2 = 0;
 
         for (int i = 0; i < skus.length(); i++) {
             String letter = skus.substring(i, i+1);
-            if (letter.equals("A") || letter.equals("B") || letter.equals("C") || letter.equals("D")) {
+            if (letter.equals("A") || letter.equals("B") || letter.equals("C") || letter.equals("D") || letter.equals("E")) {
                 skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
             } else {
                 illegalInput = true;
+            }
+        }
+
+        if ((skuCount.get("E") == null ? 0 : skuCount.get("E")) >=2
+                && (skuCount.get("B") == null ? 0 : skuCount.get("B")) > 0) {
+            int freeB = skuCount.get("E") / 2;
+            int currentNumberOfBInTrolly = skuCount.get("B");
+            if (currentNumberOfBInTrolly >= freeB) {
+                skuCount.put("B", currentNumberOfBInTrolly - freeB);
             }
         }
 
@@ -32,7 +44,13 @@ public class CheckoutSolution {
             int numberOfOffer = numberOfA / 5;
             int numberOfFullPrice = numberOfA % 5;
             offerA = numberOfOffer * 200;
-            fullPriceA = numberOfFullPrice * prices.get("A");
+            if (numberOfFullPrice >= 3) {
+                int numberOfOffer2 = numberOfFullPrice / 3;
+                int numberOfFullPrice2 = numberOfFullPrice % 3;
+                offerA2 = numberOfOffer2 * 130;
+                fullPriceA2 = numberOfFullPrice2 * prices.get("A");
+                fullPriceA = numberOfFullPrice * prices.get("A");
+            }
         } else if (numberOfA >= 3) {
             int numberOfOffer = numberOfA / 3;
             int numberOfFullPrice = numberOfA % 3;
@@ -55,9 +73,10 @@ public class CheckoutSolution {
 
         priceForC = getPriceForSku(skuCount, prices, "C");
         priceForD = getPriceForSku(skuCount, prices, "D");
+        priceForE = getPriceForSku(skuCount, prices, "E");
 
         if (illegalInput == false) {
-            return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD;
+            return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD + priceForE + fullPriceA2 + offerA2;
         } else return -1;
 
     }
@@ -84,3 +103,4 @@ public class CheckoutSolution {
 
 
 }
+
