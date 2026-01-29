@@ -42,12 +42,14 @@ public class CheckoutSolution {
             }
         }
 
-        if ((skuCount.get("E") == null ? 0 : skuCount.get("E")) >=2
-                && (skuCount.get("B") == null ? 0 : skuCount.get("B")) > 0) {
-            int freeB = skuCount.get("E") / 2;
-            int currentNumberOfBInTrolly = skuCount.get("B");
-            if (currentNumberOfBInTrolly >= freeB) {
-                skuCount.put("B", currentNumberOfBInTrolly - freeB);
+        if ((skuCount.get("F") == null ? 0 : skuCount.get("F")) >=3) {
+            int freeF = skuCount.get("F") / 3;
+            int currentNumberOfFInTrolly = skuCount.get("F");
+            if (currentNumberOfFInTrolly >= freeF) {
+                skuCount.put("F", currentNumberOfFInTrolly - freeF);
+            }
+            else {
+                fullPriceF = getPriceForSku(skuCount, prices, "F");
             }
         }
 
@@ -86,9 +88,11 @@ public class CheckoutSolution {
         priceForC = getPriceForSku(skuCount, prices, "C");
         priceForD = getPriceForSku(skuCount, prices, "D");
         priceForE = getPriceForSku(skuCount, prices, "E");
+        offerPriceF = getPriceForSku(skuCount, prices, "F");
 
         if (illegalInput == false) {
-            return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD + priceForE + fullPriceA2 + offerA2;
+            return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD +
+                    priceForE + fullPriceA2 + offerA2 + offerPriceF;
         } else return -1;
 
     }
@@ -106,6 +110,7 @@ public class CheckoutSolution {
         pricesPopulated.put("C", 20);
         pricesPopulated.put("D", 15);
         pricesPopulated.put("E", 40);
+        pricesPopulated.put("F", 10);
         return pricesPopulated;
     }
 
@@ -115,4 +120,5 @@ public class CheckoutSolution {
 
 
 }
+
 
