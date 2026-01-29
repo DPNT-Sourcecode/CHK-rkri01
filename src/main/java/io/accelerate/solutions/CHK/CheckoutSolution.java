@@ -49,7 +49,7 @@ public class CheckoutSolution {
                 int numberOfFullPrice2 = numberOfFullPrice % 3;
                 offerA2 = numberOfOffer2 * 130;
                 fullPriceA2 = numberOfFullPrice2 * prices.get("A");
-                fullPriceA = numberOfFullPrice * prices.get("A");
+//                fullPriceA = numberOfFullPrice * prices.get("A");
             } else fullPriceA = numberOfFullPrice * prices.get("A");
         } else if (numberOfA >= 3) {
             int numberOfOffer = numberOfA / 3;
@@ -103,5 +103,6 @@ public class CheckoutSolution {
 
 
 }
+
 
 
