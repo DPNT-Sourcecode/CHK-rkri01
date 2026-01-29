@@ -68,6 +68,10 @@ public class CheckoutSolutionTest {
     public void checkoutTest12(){
         assertThat(checkoutSolution.checkout("AAAAAAAA"), equalTo(330));
     }
+    @Test
+    public void checkoutTest13(){
+        assertThat(checkoutSolution.checkout("AAAAAAAAA"), equalTo(380));
+    }
 
 
 
@@ -80,4 +84,5 @@ public class CheckoutSolutionTest {
 
 
 }
+
 
