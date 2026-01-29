@@ -20,13 +20,25 @@ public class CheckoutSolution {
         int priceForE = 0;
         int offerA2 = 0;
         int fullPriceA2 = 0;
+        int offerPriceF = 0;
+        int fullPriceF = 0;
 
         for (int i = 0; i < skus.length(); i++) {
             String letter = skus.substring(i, i+1);
-            if (letter.equals("A") || letter.equals("B") || letter.equals("C") || letter.equals("D") || letter.equals("E")) {
+            if (letter.equals("A") || letter.equals("B") || letter.equals("C") || letter.equals("D")
+                    || letter.equals("E") || letter.equals("F")) {
                 skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
             } else {
                 illegalInput = true;
+            }
+        }
+
+        if ((skuCount.get("E") == null ? 0 : skuCount.get("E")) >=2
+                && (skuCount.get("B") == null ? 0 : skuCount.get("B")) > 0) {
+            int freeB = skuCount.get("E") / 2;
+            int currentNumberOfBInTrolly = skuCount.get("B");
+            if (currentNumberOfBInTrolly >= freeB) {
+                skuCount.put("B", currentNumberOfBInTrolly - freeB);
             }
         }
 
@@ -103,3 +115,4 @@ public class CheckoutSolution {
 
 
 }
+
