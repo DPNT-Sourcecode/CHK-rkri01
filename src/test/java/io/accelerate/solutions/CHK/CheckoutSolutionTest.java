@@ -223,4 +223,3 @@ public class CheckoutSolutionTest {
     @Test
     public void checkoutTest56() { assertThat(checkoutSolution.checkout("VVVV"), equalTo(180));}
 }
-

@@ -84,6 +84,3 @@ public class Offers {
     }
 
 }
-
-
-
