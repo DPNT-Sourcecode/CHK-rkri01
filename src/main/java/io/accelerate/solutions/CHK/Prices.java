@@ -44,5 +44,3 @@ public class Prices {
         return number * prices.get(letter);
     }
 }
-
-

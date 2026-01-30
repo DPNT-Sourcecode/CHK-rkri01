@@ -47,4 +47,3 @@ public class CheckSku {
         return isValid;
     }
 }
-

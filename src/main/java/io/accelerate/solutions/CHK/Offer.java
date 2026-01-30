@@ -5,4 +5,3 @@ Marker Interface for an Offer
  */
 public interface Offer {
 }
-
