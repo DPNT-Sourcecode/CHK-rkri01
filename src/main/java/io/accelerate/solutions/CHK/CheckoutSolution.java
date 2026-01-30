@@ -47,22 +47,24 @@ public class CheckoutSolution {
                 illegalInput = true;
             }
         }
-
-        if ((skuCount.get("E") == null ? 0 : skuCount.get("E")) >=2
-                && (skuCount.get("B") == null ? 0 : skuCount.get("B")) > 0) {
-            int freeB = skuCount.get("E") / 2;
-            int currentNumberOfBInTrolly = skuCount.get("B");
-            if (currentNumberOfBInTrolly >= freeB) {
-                skuCount.put("B", currentNumberOfBInTrolly - freeB);
-            }
-        }
-
+        /*
+        Offers come in here
+         */
         if (Offers.isValidForOfferBuyXGetOneFree(skuCount,  "F", 2)) {
             Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCount, "F", 2);
         }
 
         if (Offers.isValidForOfferBuyXGetOneFree(skuCount,  "U", 3)) {
             Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCount, "U", 3);
+        }
+        if (Offers.isValidForOfferBuyXGetDifferentSkuFree(skuCount, "E", 2, "B")) {
+            Offers.updateSkuCountMapForOfferBuyXGetDifferentSkuFree(skuCount, "E", 2, "B");
+        }
+        if (Offers.isValidForOfferBuyXGetDifferentSkuFree(skuCount, "N", 3, "M")) {
+            Offers.updateSkuCountMapForOfferBuyXGetDifferentSkuFree(skuCount, "N", 3, "M");
+        }
+        if (Offers.isValidForOfferBuyXGetDifferentSkuFree(skuCount, "R", 3, "Q")) {
+            Offers.updateSkuCountMapForOfferBuyXGetDifferentSkuFree(skuCount, "R", 3, "Q");
         }
 
         int numberOfA = skuCount.get("A") == null ? 0 : skuCount.get("A");
@@ -120,8 +122,10 @@ public class CheckoutSolution {
         if (illegalInput == false) {
             return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD +
                     priceForE + fullPriceA2 + offerA2 + offerPriceF
-                    + fullPriceG + full;
+                    + fullPriceG + fullPriceI + fullPriceJ + fullPriceL + fullPriceM + fullPriceO
+                    + fullPriceS + fullPriceT + fullPriceW + fullPriceX + fullPriceY + fullPriceZ;
         } else return -1;
 
     }
 }
+

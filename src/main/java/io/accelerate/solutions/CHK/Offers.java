@@ -22,4 +22,23 @@ public class Offers {
             skuCount.put(letter, currentNumberInTrolly - free);
         }
     }
+
+    public static boolean isValidForOfferBuyXGetDifferentSkuFree(Map<String, Integer> skuCount, String buy, int buyCount, String free) {
+        boolean validOffer = false;
+        if ((skuCount.get(buy) == null ? 0 : skuCount.get(buy)) >= buyCount
+                && (skuCount.get(free) == null ? 0 : skuCount.get(free)) > 0) {
+            validOffer = true;
+        }
+        return validOffer;
+    }
+
+    public static void updateSkuCountMapForOfferBuyXGetDifferentSkuFree(Map<String, Integer> skuCount, String buy, int buyCount, String free) {
+        int freeOne = skuCount.get(buy) / buyCount;
+        int currentNumberInTrolly = skuCount.get(free);
+        if (currentNumberInTrolly >= freeOne) {
+            skuCount.put(free, currentNumberInTrolly - freeOne);
+        }
+    }
+
 }
+
