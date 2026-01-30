@@ -97,13 +97,14 @@ public class CheckoutSolution {
                     + k.offer() + k.fullPriced()
                     + p.offer() + p.fullPriced()
                     + q.offer() + q.fullPriced()
-                    + priceForC + priceForD + priceForE + offerPriceF
+                    + priceForC + priceForD + priceForE + offerPriceF + fullPriceN + fullPriceR + fullPriceU
                     + fullPriceG + fullPriceI + fullPriceJ + fullPriceL + fullPriceM + fullPriceO
                     + fullPriceS + fullPriceT + fullPriceW + fullPriceX + fullPriceY + fullPriceZ;
         } else return -1;
 
     }
 }
+
 
 
 
