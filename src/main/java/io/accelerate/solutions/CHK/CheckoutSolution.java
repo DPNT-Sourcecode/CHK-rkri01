@@ -1,7 +1,5 @@
 package io.accelerate.solutions.CHK;
 
-import io.accelerate.runner.SolutionNotImplementedException;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -120,3 +118,4 @@ public class CheckoutSolution {
 
 
 }
+

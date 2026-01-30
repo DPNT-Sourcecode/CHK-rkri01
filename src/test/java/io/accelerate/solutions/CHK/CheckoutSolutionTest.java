@@ -1,6 +1,5 @@
 package io.accelerate.solutions.CHK;
 
-import io.accelerate.solutions.HLO.HelloSolution;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +12,6 @@ public class CheckoutSolutionTest {
     @BeforeEach
     public void setUp() {
         checkoutSolution = new CheckoutSolution();
-        checkoutSolution.getPrices();
     }
 
     @Test
@@ -92,6 +90,46 @@ public class CheckoutSolutionTest {
     public void checkoutTest18(){
         assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
     }
+    @Test
+    public void checkoutTest18(){
+        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    }
+    @Test
+    public void checkoutTest18(){
+        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    }
+    @Test
+    public void checkoutTest18(){
+        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    }
+    @Test
+    public void checkoutTest18(){
+        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    }
+    @Test
+    public void checkoutTest18(){
+        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    }
+    @Test
+    public void checkoutTest18(){
+        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    }
+    @Test
+    public void checkoutTest18(){
+        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    }
+    @Test
+    public void checkoutTest18(){
+        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    }
+    @Test
+    public void checkoutTest18(){
+        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    }
+    @Test
+    public void checkoutTest18(){
+        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    }
 
 
 
@@ -104,3 +142,4 @@ public class CheckoutSolutionTest {
 
 
 }
+
