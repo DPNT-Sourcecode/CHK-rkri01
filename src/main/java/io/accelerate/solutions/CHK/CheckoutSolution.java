@@ -12,17 +12,10 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
         boolean illegalInput = false;
         Map<String, Integer> skuCount = new HashMap<>();
-        int offerA = 0;
-        int fullPriceA = 0;
-        int offerB = 0;
-        int fullPriceB = 0;
         int priceForC = 0;
         int priceForD = 0;
         int priceForE = 0;
-        int offerA2 = 0;
-        int fullPriceA2 = 0;
         int offerPriceF = 0;
-        int priceForF = 0;
         int fullPriceG = 0;
         int fullPriceI = 0;
         int fullPriceJ = 0;
@@ -68,18 +61,13 @@ public class CheckoutSolution {
         }
 
         Reduced a = Offers.validOfferCheaperInMultiples(skuCount, prices, "A", 3, 130, 5, 200);
-        
+        Reduced h = Offers.validOfferCheaperInMultiples(skuCount, prices, "H", 5, 45, 10, 80);
+        Reduced v = Offers.validOfferCheaperInMultiples(skuCount, prices, "V", 2, 90, 3, 130);
 
-        int numberOfB = skuCount.get("B") == null ? 0 : skuCount.get("B") ;
-        if (numberOfB >= 2) {
-            int numberOfOffer = numberOfB / 2;
-            int numberOfFullPrice = numberOfB % 2;
-            offerB = numberOfOffer * 45;
-            fullPriceB = numberOfFullPrice * prices.get("B");
-
-        } else {
-            fullPriceB = getPriceForSku(skuCount, prices, "B");
-        }
+        SpecialOffer b = Offers.validOfferBuyXgetForCheaper(skuCount, prices, "B", 2, 45);
+        SpecialOffer k = Offers.validOfferBuyXgetForCheaper(skuCount, prices, "K", 2, 150);
+        SpecialOffer p = Offers.validOfferBuyXgetForCheaper(skuCount, prices, "P", 5, 200);
+        SpecialOffer q = Offers.validOfferBuyXgetForCheaper(skuCount, prices, "Q", 3, 80);
 
         priceForC = getPriceForSku(skuCount, prices, "C");
         priceForD = getPriceForSku(skuCount, prices, "D");
@@ -102,13 +90,20 @@ public class CheckoutSolution {
         fullPriceZ = getPriceForSku(skuCount, prices, "Z");
 
         if (illegalInput == false) {
-            return offerA + fullPriceA + offerB + fullPriceB + priceForC + priceForD +
-                    priceForE + fullPriceA2 + offerA2 + offerPriceF
+            return a.offer() + a.fullPriced() + a.fullPrice2() + a.offer2()
+                    + h.offer() + h.fullPriced() + h.fullPrice2() + h.offer2()
+                    + v.offer() + v.fullPriced() + v.fullPrice2() + v.offer2()
+                    + b.offer() + b.fullPriced()
+                    + k.offer() + k.fullPriced()
+                    + p.offer() + p.fullPriced()
+                    + q.offer() + q.fullPriced()
+                    + priceForC + priceForD + priceForE + offerPriceF
                     + fullPriceG + fullPriceI + fullPriceJ + fullPriceL + fullPriceM + fullPriceO
                     + fullPriceS + fullPriceT + fullPriceW + fullPriceX + fullPriceY + fullPriceZ;
         } else return -1;
 
     }
 }
+
 
 

@@ -68,6 +68,22 @@ public class Offers {
         return new Reduced(offer, fullPrice, offer2, fullPrice2);
     }
 
+    public static SpecialOffer validOfferBuyXgetForCheaper(Map<String, Integer> skuCount, HashMap<String, Integer> prices, String letter, int buyCount, int offerPrice) {
+        int offer = 0;
+        int fullPrice = 0;
+        int numberOf = skuCount.get(letter) == null ? 0 : skuCount.get(letter);
+        if (numberOf >= buyCount) {
+            int numberOfOffer = numberOf / buyCount;
+            int numberOfFullPrice = numberOf % buyCount;
+            offer = numberOfOffer * offerPrice;
+            fullPrice = numberOfFullPrice * prices.get(letter);
+        } else {
+            fullPrice = Prices.getPriceForSku(skuCount, prices, letter);
+        }
+        return new SpecialOffer(offer, fullPrice);
+    }
+
 }
+
 
 
