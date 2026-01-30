@@ -23,8 +23,7 @@ public class CheckoutSolution {
 
         for (int i = 0; i < skus.length(); i++) {
             String letter = skus.substring(i, i+1);
-            if (letter.equals("A") || letter.equals("B") || letter.equals("C") || letter.equals("D")
-                    || letter.equals("E") || letter.equals("F")) {
+            if (CheckSku.isValid(letter, illegalInput)) {
                 skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
             } else {
                 illegalInput = true;
@@ -118,4 +117,5 @@ public class CheckoutSolution {
 
 
 }
+
 
