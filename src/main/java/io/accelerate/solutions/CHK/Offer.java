@@ -1,6 +1,4 @@
 package io.accelerate.solutions.CHK;
 
-public class Offers {
-
+public interface Offer {
 }
-
