@@ -3,6 +3,9 @@ package io.accelerate.solutions.CHK;
 import java.util.HashMap;
 import java.util.Map;
 
+import static io.accelerate.solutions.CHK.Prices.getPriceForSku;
+import static io.accelerate.solutions.CHK.Prices.populatePrices;
+
 public class CheckoutSolution {
     public HashMap<String, Integer> prices = populatePrices();
 
@@ -19,7 +22,7 @@ public class CheckoutSolution {
         int offerA2 = 0;
         int fullPriceA2 = 0;
         int offerPriceF = 0;
-        int fullPriceF = 0;
+        int priceForF = 0;
 
         for (int i = 0; i < skus.length(); i++) {
             String letter = skus.substring(i, i+1);
@@ -39,15 +42,12 @@ public class CheckoutSolution {
             }
         }
 
-        if ((skuCount.get("F") == null ? 0 : skuCount.get("F")) >=3) {
-            int freeF = skuCount.get("F") / 3;
-            int currentNumberOfFInTrolly = skuCount.get("F");
-            if (currentNumberOfFInTrolly >= freeF) {
-                skuCount.put("F", currentNumberOfFInTrolly - freeF);
-            }
-            else {
-                fullPriceF = getPriceForSku(skuCount, prices, "F");
-            }
+        if (Offers.isValidForOfferBuyXGetOneFree(skuCount,  "F", 2)) {
+            Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCount, "F", 2);
+        }
+
+        if (Offers.isValidForOfferBuyXGetOneFree(skuCount,  "U", 3)) {
+            Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCount, "U", 3);
         }
 
         int numberOfA = skuCount.get("A") == null ? 0 : skuCount.get("A");
@@ -93,29 +93,7 @@ public class CheckoutSolution {
         } else return -1;
 
     }
-
-    private int getPriceForSku(Map<String, Integer> skuCount, HashMap<String, Integer> prices, String letter){
-        if (skuCount == null) return -1;
-        int number = skuCount.get(letter) == null ? 0 : skuCount.get(letter);
-        return number * prices.get(letter);
-    }
-
-    private static HashMap<String, Integer> populatePrices() {
-        HashMap<String, Integer> pricesPopulated = new HashMap<>();
-        pricesPopulated.put("A", 50);
-        pricesPopulated.put("B", 30);
-        pricesPopulated.put("C", 20);
-        pricesPopulated.put("D", 15);
-        pricesPopulated.put("E", 40);
-        pricesPopulated.put("F", 10);
-        return pricesPopulated;
-    }
-
-    public HashMap<String, Integer> getPrices() {
-        return this.prices;
-    }
-
-
 }
+
 
 

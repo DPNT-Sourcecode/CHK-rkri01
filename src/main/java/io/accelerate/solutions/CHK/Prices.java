@@ -7,7 +7,7 @@ public class Prices {
 
     public static  HashMap<String, Integer> PRICELIST = populatePrices();
 
-    private static HashMap<String, Integer> populatePrices() {
+    public static HashMap<String, Integer> populatePrices() {
         HashMap<String, Integer> pricesPopulated = new HashMap<>();
         pricesPopulated.put("A", 50);
         pricesPopulated.put("B", 30);
@@ -44,4 +44,5 @@ public class Prices {
         return number * prices.get(letter);
     }
 }
+
 
