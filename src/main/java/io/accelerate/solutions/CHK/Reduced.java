@@ -1,4 +1,5 @@
 package io.accelerate.solutions.CHK;
 
-public record OfferA(int offerA, int fullPricedA, int offerA2, int fullPriceA2) {
+public record Reduced(int offer, int fullPriced, int offer2, int fullPrice2) implements Offer {
 }
+

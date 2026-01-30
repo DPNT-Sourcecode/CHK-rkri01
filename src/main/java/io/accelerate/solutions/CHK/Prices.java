@@ -15,6 +15,26 @@ public class Prices {
         pricesPopulated.put("D", 15);
         pricesPopulated.put("E", 40);
         pricesPopulated.put("F", 10);
+        pricesPopulated.put("G", 20);
+        pricesPopulated.put("H", 10);
+        pricesPopulated.put("I", 35);
+        pricesPopulated.put("J", 60);
+        pricesPopulated.put("K", 80);
+        pricesPopulated.put("L", 90);
+        pricesPopulated.put("M", 15);
+        pricesPopulated.put("N", 40);
+        pricesPopulated.put("O", 10);
+        pricesPopulated.put("P", 50);
+        pricesPopulated.put("Q", 30);
+        pricesPopulated.put("R", 50);
+        pricesPopulated.put("S", 30);
+        pricesPopulated.put("T", 20);
+        pricesPopulated.put("U", 40);
+        pricesPopulated.put("V", 50);
+        pricesPopulated.put("W", 20);
+        pricesPopulated.put("X", 90);
+        pricesPopulated.put("Y", 10);
+        pricesPopulated.put("Z", 50);
         return pricesPopulated;
     }
 
@@ -24,3 +44,4 @@ public class Prices {
         return number * prices.get(letter);
     }
 }
+
