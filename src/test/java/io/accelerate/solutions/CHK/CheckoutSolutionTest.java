@@ -91,45 +91,49 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
     }
     @Test
-    public void checkoutTest18(){
-        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    public void checkoutTest19(){ assertThat(checkoutSolution.checkout("G"), equalTo(20));}
+    @Test
+    public void checkoutTest20(){
+        assertThat(checkoutSolution.checkout("I"), equalTo(35));
     }
     @Test
-    public void checkoutTest18(){
-        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    public void checkoutTest21(){
+        assertThat(checkoutSolution.checkout("J"), equalTo(60));
     }
     @Test
-    public void checkoutTest18(){
-        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    public void checkoutTest22(){
+        assertThat(checkoutSolution.checkout("L"), equalTo(90));
     }
     @Test
-    public void checkoutTest18(){
-        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    public void checkoutTest23(){
+        assertThat(checkoutSolution.checkout("M"), equalTo(15));
     }
     @Test
-    public void checkoutTest18(){
-        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    public void checkoutTest24(){
+        assertThat(checkoutSolution.checkout("O"), equalTo(10));
     }
     @Test
-    public void checkoutTest18(){
-        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    public void checkoutTest25(){
+        assertThat(checkoutSolution.checkout("S"), equalTo(30));
     }
     @Test
-    public void checkoutTest18(){
-        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    public void checkoutTest26(){
+        assertThat(checkoutSolution.checkout("T"), equalTo(20));
     }
     @Test
-    public void checkoutTest18(){
-        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    public void checkoutTest27(){
+        assertThat(checkoutSolution.checkout("W"), equalTo(20));
     }
     @Test
-    public void checkoutTest18(){
-        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    public void checkoutTest28(){
+        assertThat(checkoutSolution.checkout("X"), equalTo(90));
     }
     @Test
-    public void checkoutTest18(){
-        assertThat(checkoutSolution.checkout("FFFFF"), equalTo(40));
+    public void checkoutTest29(){
+        assertThat(checkoutSolution.checkout("Y"), equalTo(10));
     }
+    @Test
+    public void checkoutTest30(){ assertThat(checkoutSolution.checkout("Z"), equalTo(50));}
 
 
 
@@ -142,4 +146,5 @@ public class CheckoutSolutionTest {
 
 
 }
+
 
