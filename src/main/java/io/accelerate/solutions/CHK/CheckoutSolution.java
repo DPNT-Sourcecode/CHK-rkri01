@@ -67,26 +67,8 @@ public class CheckoutSolution {
             Offers.updateSkuCountMapForOfferBuyXGetDifferentSkuFree(skuCount, "R", 3, "Q");
         }
 
-        int numberOfA = skuCount.get("A") == null ? 0 : skuCount.get("A");
-        if (numberOfA >= 5) {
-            int numberOfOffer = numberOfA / 5;
-            int numberOfFullPrice = numberOfA % 5;
-            offerA = numberOfOffer * 200;
-            if (numberOfFullPrice >= 3) {
-                int numberOfOffer2 = numberOfFullPrice / 3;
-                int numberOfFullPrice2 = numberOfFullPrice % 3;
-                offerA2 = numberOfOffer2 * 130;
-                fullPriceA2 = numberOfFullPrice2 * prices.get("A");
-//                fullPriceA = numberOfFullPrice * prices.get("A");
-            } else fullPriceA = numberOfFullPrice * prices.get("A");
-        } else if (numberOfA >= 3) {
-            int numberOfOffer = numberOfA / 3;
-            int numberOfFullPrice = numberOfA % 3;
-            offerA = numberOfOffer * 130;
-            fullPriceA = numberOfFullPrice * prices.get("A");
-        }  else {
-            fullPriceA = getPriceForSku(skuCount, prices, "A");
-        }
+        Reduced a = Offers.validOfferCheaperInMultiples(skuCount, prices, "A", 3, 130, 5, 200);
+        
 
         int numberOfB = skuCount.get("B") == null ? 0 : skuCount.get("B") ;
         if (numberOfB >= 2) {
@@ -128,4 +110,5 @@ public class CheckoutSolution {
 
     }
 }
+
 

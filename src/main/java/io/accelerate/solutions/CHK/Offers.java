@@ -1,5 +1,6 @@
 package io.accelerate.solutions.CHK;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Offers {
@@ -40,5 +41,33 @@ public class Offers {
         }
     }
 
+    public static Reduced validOfferCheaperInMultiples(Map<String, Integer> skuCount, HashMap<String, Integer> prices, String letter, int firstCount, int firstPrice, int secondCount, int secondPrice) {
+        int offer = 0;
+        int fullPrice = 0;
+        int offer2 = 0;
+        int fullPrice2 = 0;
+        int numberOfItem = skuCount.get(letter) == null ? 0 : skuCount.get(letter);
+        if (numberOfItem >= secondCount) {
+            int numberOfOffer = numberOfItem / secondCount;
+            int numberOfFullPrice = numberOfItem % secondCount;
+            offer = numberOfOffer * secondPrice;
+            if (numberOfFullPrice >= firstCount) {
+                int numberOfOffer2 = numberOfFullPrice / firstCount;
+                int numberOfFullPrice2 = numberOfFullPrice % firstCount;
+                offer2 = numberOfOffer2 * firstPrice;
+                fullPrice2 = numberOfFullPrice2 * prices.get(letter);
+            } else fullPrice = numberOfFullPrice * prices.get(letter);
+        } else if (numberOfItem >= firstCount) {
+            int numberOfOffer = numberOfItem / firstCount;
+            int numberOfFullPrice = numberOfItem % firstCount;
+            offer = numberOfOffer * firstPrice;
+            fullPrice = numberOfFullPrice * prices.get(letter);
+        } else {
+            fullPrice = Prices.getPriceForSku(skuCount, prices, letter);
+        }
+        return new Reduced(offer, fullPrice, offer2, fullPrice2);
+    }
+
 }
+
 
