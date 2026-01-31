@@ -114,7 +114,7 @@ public class CheckoutSolutionTest {
     }
     @Test
     public void checkoutTest25(){
-        assertThat(checkoutSolution.checkout("S"), equalTo(30));
+        assertThat(checkoutSolution.checkout("S"), equalTo(20));
     }
     @Test
     public void checkoutTest26(){
@@ -126,14 +126,14 @@ public class CheckoutSolutionTest {
     }
     @Test
     public void checkoutTest28(){
-        assertThat(checkoutSolution.checkout("X"), equalTo(90));
+        assertThat(checkoutSolution.checkout("X"), equalTo(17));
     }
     @Test
     public void checkoutTest29(){
-        assertThat(checkoutSolution.checkout("Y"), equalTo(10));
+        assertThat(checkoutSolution.checkout("Y"), equalTo(20));
     }
     @Test
-    public void checkoutTest30(){ assertThat(checkoutSolution.checkout("Z"), equalTo(50));}
+    public void checkoutTest30(){ assertThat(checkoutSolution.checkout("Z"), equalTo(21));}
     @Test
     public void checkoutTest31(){
         assertThat(checkoutSolution.checkout("HHHHH"), equalTo(45));
@@ -156,7 +156,7 @@ public class CheckoutSolutionTest {
     }
     @Test
     public void checkoutTest36(){
-        assertThat(checkoutSolution.checkout("K"), equalTo(80));
+        assertThat(checkoutSolution.checkout("K"), equalTo(70));
     }
     @Test
     public void checkoutTest37(){
@@ -238,3 +238,4 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("STXYZSTXYZSTXY"), equalTo(214));
     }
 }
+

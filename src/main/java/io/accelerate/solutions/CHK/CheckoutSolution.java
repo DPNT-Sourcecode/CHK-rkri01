@@ -45,51 +45,51 @@ public class CheckoutSolution {
         skus = updateSkuCountForGroupOffer(skus, treeSet, group.numberOfItemsToRemoveFromInput());
         Map<String, Integer> skuCountGroupOfferRemoved = getSkuCountFromSkus(skus, illegalInput);
 
-        if (Offers.isValidForOfferBuyXGetOneFree(skuCount,  "F", 2)) {
-            Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCount, "F", 2);
+        if (Offers.isValidForOfferBuyXGetOneFree(skuCountGroupOfferRemoved,  "F", 2)) {
+            Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCountGroupOfferRemoved, "F", 2);
         }
 
-        if (Offers.isValidForOfferBuyXGetOneFree(skuCount,  "U", 3)) {
-            Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCount, "U", 3);
+        if (Offers.isValidForOfferBuyXGetOneFree(skuCountGroupOfferRemoved,  "U", 3)) {
+            Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCountGroupOfferRemoved, "U", 3);
         }
-        if (Offers.isValidForOfferBuyXGetDifferentSkuFree(skuCount, "E", 2, "B")) {
-            Offers.updateSkuCountMapForOfferBuyXGetDifferentSkuFree(skuCount, "E", 2, "B");
+        if (Offers.isValidForOfferBuyXGetDifferentSkuFree(skuCountGroupOfferRemoved, "E", 2, "B")) {
+            Offers.updateSkuCountMapForOfferBuyXGetDifferentSkuFree(skuCountGroupOfferRemoved, "E", 2, "B");
         }
-        if (Offers.isValidForOfferBuyXGetDifferentSkuFree(skuCount, "N", 3, "M")) {
-            Offers.updateSkuCountMapForOfferBuyXGetDifferentSkuFree(skuCount, "N", 3, "M");
+        if (Offers.isValidForOfferBuyXGetDifferentSkuFree(skuCountGroupOfferRemoved, "N", 3, "M")) {
+            Offers.updateSkuCountMapForOfferBuyXGetDifferentSkuFree(skuCountGroupOfferRemoved, "N", 3, "M");
         }
-        if (Offers.isValidForOfferBuyXGetDifferentSkuFree(skuCount, "R", 3, "Q")) {
-            Offers.updateSkuCountMapForOfferBuyXGetDifferentSkuFree(skuCount, "R", 3, "Q");
+        if (Offers.isValidForOfferBuyXGetDifferentSkuFree(skuCountGroupOfferRemoved, "R", 3, "Q")) {
+            Offers.updateSkuCountMapForOfferBuyXGetDifferentSkuFree(skuCountGroupOfferRemoved, "R", 3, "Q");
         }
 
-        Reduced a = Offers.validOfferCheaperInMultiples(skuCount, prices, "A", 3, 130, 5, 200);
-        Reduced h = Offers.validOfferCheaperInMultiples(skuCount, prices, "H", 5, 45, 10, 80);
-        Reduced v = Offers.validOfferCheaperInMultiples(skuCount, prices, "V", 2, 90, 3, 130);
+        Reduced a = Offers.validOfferCheaperInMultiples(skuCountGroupOfferRemoved, prices, "A", 3, 130, 5, 200);
+        Reduced h = Offers.validOfferCheaperInMultiples(skuCountGroupOfferRemoved, prices, "H", 5, 45, 10, 80);
+        Reduced v = Offers.validOfferCheaperInMultiples(skuCountGroupOfferRemoved, prices, "V", 2, 90, 3, 130);
 
-        SpecialOffer b = Offers.validOfferBuyXgetForCheaper(skuCount, prices, "B", 2, 45);
-        SpecialOffer k = Offers.validOfferBuyXgetForCheaper(skuCount, prices, "K", 2, 150);
-        SpecialOffer p = Offers.validOfferBuyXgetForCheaper(skuCount, prices, "P", 5, 200);
-        SpecialOffer q = Offers.validOfferBuyXgetForCheaper(skuCount, prices, "Q", 3, 80);
+        SpecialOffer b = Offers.validOfferBuyXgetForCheaper(skuCountGroupOfferRemoved, prices, "B", 2, 45);
+        SpecialOffer k = Offers.validOfferBuyXgetForCheaper(skuCountGroupOfferRemoved, prices, "K", 2, 150);
+        SpecialOffer p = Offers.validOfferBuyXgetForCheaper(skuCountGroupOfferRemoved, prices, "P", 5, 200);
+        SpecialOffer q = Offers.validOfferBuyXgetForCheaper(skuCountGroupOfferRemoved, prices, "Q", 3, 80);
 
-        priceForC = getPriceForSku(skuCount, prices, "C");
-        priceForD = getPriceForSku(skuCount, prices, "D");
-        priceForE = getPriceForSku(skuCount, prices, "E");
-        offerPriceF = getPriceForSku(skuCount, prices, "F");
-        fullPriceG = getPriceForSku(skuCount, prices, "G");
-        fullPriceI = getPriceForSku(skuCount, prices, "I");
-        fullPriceJ = getPriceForSku(skuCount, prices, "J");
-        fullPriceL = getPriceForSku(skuCount, prices, "L");
-        fullPriceM = getPriceForSku(skuCount, prices, "M");
-        fullPriceN = getPriceForSku(skuCount, prices, "N");
-        fullPriceO = getPriceForSku(skuCount, prices, "O");
-        fullPriceR = getPriceForSku(skuCount, prices, "R");
-        fullPriceS = getPriceForSku(skuCount, prices, "S");
-        fullPriceT = getPriceForSku(skuCount, prices, "T");
-        fullPriceU = getPriceForSku(skuCount, prices, "U");
-        fullPriceW = getPriceForSku(skuCount, prices, "W");
-        fullPriceX = getPriceForSku(skuCount, prices, "X");
-        fullPriceY = getPriceForSku(skuCount, prices, "Y");
-        fullPriceZ = getPriceForSku(skuCount, prices, "Z");
+        priceForC = getPriceForSku(skuCountGroupOfferRemoved, prices, "C");
+        priceForD = getPriceForSku(skuCountGroupOfferRemoved, prices, "D");
+        priceForE = getPriceForSku(skuCountGroupOfferRemoved, prices, "E");
+        offerPriceF = getPriceForSku(skuCountGroupOfferRemoved, prices, "F");
+        fullPriceG = getPriceForSku(skuCountGroupOfferRemoved, prices, "G");
+        fullPriceI = getPriceForSku(skuCountGroupOfferRemoved, prices, "I");
+        fullPriceJ = getPriceForSku(skuCountGroupOfferRemoved, prices, "J");
+        fullPriceL = getPriceForSku(skuCountGroupOfferRemoved, prices, "L");
+        fullPriceM = getPriceForSku(skuCountGroupOfferRemoved, prices, "M");
+        fullPriceN = getPriceForSku(skuCountGroupOfferRemoved, prices, "N");
+        fullPriceO = getPriceForSku(skuCountGroupOfferRemoved, prices, "O");
+        fullPriceR = getPriceForSku(skuCountGroupOfferRemoved, prices, "R");
+        fullPriceS = getPriceForSku(skuCountGroupOfferRemoved, prices, "S");
+        fullPriceT = getPriceForSku(skuCountGroupOfferRemoved, prices, "T");
+        fullPriceU = getPriceForSku(skuCountGroupOfferRemoved, prices, "U");
+        fullPriceW = getPriceForSku(skuCountGroupOfferRemoved, prices, "W");
+        fullPriceX = getPriceForSku(skuCountGroupOfferRemoved, prices, "X");
+        fullPriceY = getPriceForSku(skuCountGroupOfferRemoved, prices, "Y");
+        fullPriceZ = getPriceForSku(skuCountGroupOfferRemoved, prices, "Z");
 
         if (illegalInput == false) {
             return a.offer() + a.fullPriced() + a.fullPrice2() + a.offer2()
@@ -116,4 +116,5 @@ public class CheckoutSolution {
         return skuCount;
     }
 }
+
 
