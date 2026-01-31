@@ -39,7 +39,6 @@ public class Offers {
                     skus = skus.replace(item.getSku(), "");
                 } else {
                     for (int i = 0; i < itemsToRemove; i++){
-                        itemsToRemove -= 1;
                         skus = skus.replaceFirst(item.getSku(), "");
                     }
                 }
@@ -127,3 +126,4 @@ public class Offers {
     }
 
 }
+
