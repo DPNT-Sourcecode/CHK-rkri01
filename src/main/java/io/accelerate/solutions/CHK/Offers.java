@@ -33,12 +33,14 @@ public class Offers {
         int itemsToRemove = numberOfItemsToRemove;
         for (Item item : treeSet) {
             int occurrence = skus.length() - skus.replace(item.getSku(), "").length();
-            if (itemsToRemove > 0 ){
+            if (itemsToRemove > 0  && occurrence > 0){
                 if (itemsToRemove >= occurrence) {
                     itemsToRemove -= occurrence;
                     skus = skus.replace(item.getSku(), "");
-                } else {
-                    for (int i = 0; i < itemsToRemove; i++){
+                } else if (itemsToRemove < occurrence){
+                    int timesToIterate = itemsToRemove;
+                    for (int i = 0; i < timesToIterate; i++){
+                        itemsToRemove -= 1;
                         skus = skus.replaceFirst(item.getSku(), "");
                     }
                 }
@@ -126,3 +128,4 @@ public class Offers {
     }
 
 }
+
