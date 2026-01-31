@@ -32,7 +32,18 @@ public class Offers {
     public static String updateSkuCountForGroupOffer(String skus, NavigableSet<Item> treeSet, int numberOfItemsToRemove) {
         int itemsToRemove = numberOfItemsToRemove;
         for (Item item : treeSet) {
-            
+            int occurrence = skus.length() - skus.replace(item.getSku(), "").length();
+            if (itemsToRemove > 0 ){
+                if (itemsToRemove >= occurrence) {
+                    itemsToRemove -= occurrence;
+                    skus = skus.replace(item.getSku(), "");
+                } else {
+                    for (int i = 0; i < itemsToRemove; i++){
+                        itemsToRemove -= 1;
+                        skus = skus.replaceFirst(item.getSku(), "");
+                    }
+                }
+            }
         }
         return skus;
     }
@@ -116,3 +127,4 @@ public class Offers {
     }
 
 }
+

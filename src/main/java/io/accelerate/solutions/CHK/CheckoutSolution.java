@@ -2,8 +2,7 @@ package io.accelerate.solutions.CHK;
 
 import java.util.*;
 
-import static io.accelerate.solutions.CHK.Offers.costOfGroupOffer;
-import static io.accelerate.solutions.CHK.Offers.createTreeSet;
+import static io.accelerate.solutions.CHK.Offers.*;
 import static io.accelerate.solutions.CHK.Prices.getPriceForSku;
 import static io.accelerate.solutions.CHK.Prices.populatePrices;
 
@@ -43,7 +42,8 @@ public class CheckoutSolution {
 
         Group group = costOfGroupOffer(skuCount, offerLetterSet, 3, 45);
         NavigableSet<Item> treeSet = createTreeSet(prices, offerLetterSet);
-
+        skus = updateSkuCountForGroupOffer(skus, treeSet, group.numberOfItemsToRemoveFromInput());
+        Map<String, Integer> skuCountGroupOfferRemoved = getSkuCountFromSkus(skus, illegalInput);
 
         if (Offers.isValidForOfferBuyXGetOneFree(skuCount,  "F", 2)) {
             Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCount, "F", 2);
@@ -116,3 +116,4 @@ public class CheckoutSolution {
         return skuCount;
     }
 }
+
