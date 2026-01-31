@@ -29,6 +29,14 @@ public class Offers {
         return treeSet.descendingSet();
     }
 
+    public static String updateSkuCountForGroupOffer(String skus, NavigableSet<Item> treeSet, int numberOfItemsToRemove) {
+        int itemsToRemove = numberOfItemsToRemove;
+        for (Item item : treeSet) {
+            
+        }
+        return skus;
+    }
+
     /*
     buyCount is how many are paid for, not including free ones
      */
@@ -108,6 +116,3 @@ public class Offers {
     }
 
 }
-
-
-

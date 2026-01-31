@@ -1,10 +1,9 @@
 package io.accelerate.solutions.CHK;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
+import static io.accelerate.solutions.CHK.Offers.costOfGroupOffer;
+import static io.accelerate.solutions.CHK.Offers.createTreeSet;
 import static io.accelerate.solutions.CHK.Prices.getPriceForSku;
 import static io.accelerate.solutions.CHK.Prices.populatePrices;
 
@@ -42,7 +41,8 @@ public class CheckoutSolution {
         offerLetterSet.add("Y");
         offerLetterSet.add("Z");
 
-
+        Group group = costOfGroupOffer(skuCount, offerLetterSet, 3, 45);
+        NavigableSet<Item> treeSet = createTreeSet(prices, offerLetterSet);
 
 
         if (Offers.isValidForOfferBuyXGetOneFree(skuCount,  "F", 2)) {
@@ -101,7 +101,7 @@ public class CheckoutSolution {
                     + q.offer() + q.fullPriced()
                     + priceForC + priceForD + priceForE + offerPriceF + fullPriceN + fullPriceR + fullPriceU
                     + fullPriceG + fullPriceI + fullPriceJ + fullPriceL + fullPriceM + fullPriceO
-                    + fullPriceS + fullPriceT + fullPriceW + fullPriceX + fullPriceY + fullPriceZ;
+                    + fullPriceS + fullPriceT + fullPriceW + fullPriceX + fullPriceY + fullPriceZ + group.priceOfItems();
         } else return -1;
     }
 
@@ -116,4 +116,3 @@ public class CheckoutSolution {
         return skuCount;
     }
 }
-

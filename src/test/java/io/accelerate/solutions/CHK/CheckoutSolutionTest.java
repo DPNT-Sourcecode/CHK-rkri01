@@ -238,5 +238,3 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("STXYZSTXYZSTXY"), equalTo(214));
     }
 }
-
-
