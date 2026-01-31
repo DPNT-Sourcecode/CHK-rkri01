@@ -4,9 +4,9 @@ import java.util.*;
 
 public class Offers {
 
-    public static Group costOfGroupOffer(Map<String, Integer> skuCount, Set<String> letters, int buyCount, int offerPrice) {
-        return new Group();
-    }
+//    public static Group costOfGroupOffer(Map<String, Integer> skuCount, Set<String> letters, int buyCount, int offerPrice) {
+//        return new Group();
+//    }
 
     /*
 
@@ -98,4 +98,5 @@ public class Offers {
     }
 
 }
+
 
