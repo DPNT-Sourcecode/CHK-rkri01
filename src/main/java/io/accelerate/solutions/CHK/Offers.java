@@ -4,12 +4,22 @@ import java.util.*;
 
 public class Offers {
 
-//    public static Group costOfGroupOffer(Map<String, Integer> skuCount, Set<String> letters, int buyCount, int offerPrice) {
-//        return new Group();
-//    }
+    public static Group costOfGroupOffer(Map<String, Integer> skuCount, Set<String> letters, int buyCount, int offerPrice) {
+        boolean validOffer = false;
+        int numberOfItemsPurchased = 0;
+        for (String letter : letters) {
+            skuCount.putIfAbsent(letter, 0);
+            numberOfItemsPurchased += skuCount.get(letter);
+        }
+        if (numberOfItemsPurchased >= buyCount) {
+            validOffer = true;
+        }
+        return new Group(validOffer, numberOfItemsPurchased, offerPrice * (numberOfItemsPurchased / buyCount),
+                (numberOfItemsPurchased / buyCount) * buyCount);
+    }
 
     /*
-
+        Have a prefernce to select the more expensive items in the Group Offer first.
      */
     public static NavigableSet<Item> createTreeSet(HashMap<String, Integer> prices, Set<String> letters){
         TreeSet<Item> treeSet = new TreeSet<>();
@@ -98,5 +108,6 @@ public class Offers {
     }
 
 }
+
 
 
