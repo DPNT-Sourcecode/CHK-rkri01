@@ -32,16 +32,10 @@ public class CheckoutSolution {
         int fullPriceY = 0;
         int fullPriceZ = 0;
 
-        Map<String, Integer> skuCount = getSkuCountFromSkus(skus, illegalInput);
-        for (int i = 0; i < skus.length(); i++) {
-            String letter = skus.substring(i, i+1);
-            if (CheckSku.isValid(letter, illegalInput)) {
-                skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
-            } else {
-                illegalInput = true;
-                return -1;
-            }
+        if(!CheckSku.isValid(skus)) {
+            return -1;
         }
+        Map<String, Integer> skuCount = getSkuCountFromSkus(skus);
 
         Set<String> offerLetterSet = new HashSet<>();
         offerLetterSet.add("S");
@@ -53,7 +47,7 @@ public class CheckoutSolution {
         Group group = costOfGroupOffer(skuCount, offerLetterSet, 3, 45);
         NavigableSet<Item> treeSet = createTreeSet(prices, offerLetterSet);
         skus = updateSkuCountForGroupOffer(skus, treeSet, group.numberOfItemsToRemoveFromInput());
-        Map<String, Integer> skuCountGroupOfferRemoved = getSkuCountFromSkus(skus, illegalInput);
+        Map<String, Integer> skuCountGroupOfferRemoved = getSkuCountFromSkus(skus);
 
         if (Offers.isValidForOfferBuyXGetOneFree(skuCountGroupOfferRemoved,  "F", 2)) {
             Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCountGroupOfferRemoved, "F", 2);
@@ -115,15 +109,12 @@ public class CheckoutSolution {
         } else return -1;
     }
 
-    private Map<String, Integer> getSkuCountFromSkus(String skus, boolean illegalInput){
+    private Map<String, Integer> getSkuCountFromSkus(String skus){
         Map<String, Integer> skuCount = new HashMap<>();
         for (int i = 0; i < skus.length(); i++) {
             String letter = skus.substring(i, i+1);
-            if (CheckSku.isValid(letter, illegalInput)) {
-                skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
-            } else illegalInput = true;
+            skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
         }
         return skuCount;
     }
 }
-

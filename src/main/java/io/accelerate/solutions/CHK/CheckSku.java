@@ -38,12 +38,14 @@ public class CheckSku {
         return validSkus;
     }
 
-    public static boolean isValid (String letter, boolean isValid) {
-        if  ((VALID_SKU.contains(letter))) {
-            isValid = true;
-        } else {
-            isValid = false;
-        }
-        return isValid;
+    public static boolean isValid(String skus) {
+        boolean isValid = true;
+        for (int i = 0; i < skus.length(); i++) {
+            String letter = skus.substring(i, i+1);
+            if (!VALID_SKU.contains(letter)) {
+                isValid = false;
+                return isValid;
+            }
+        } return isValid;
     }
 }
