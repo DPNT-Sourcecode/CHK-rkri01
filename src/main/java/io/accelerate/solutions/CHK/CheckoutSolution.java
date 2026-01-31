@@ -34,15 +34,15 @@ public class CheckoutSolution {
 
         Map<String, Integer> skuCount = getSkuCountFromSkus(skus, illegalInput);
 
-        for (int i = 0; i < skus.length(); i++) {
-            String letter = skus.substring(i, i+1);
-            if (CheckSku.isValid(letter, illegalInput)) {
-                skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
-            } else {
-                illegalInput = true;
-                return -1;
-            }
-        }
+//        for (int i = 0; i < skus.length(); i++) {
+//            String letter = skus.substring(i, i+1);
+//            if (CheckSku.isValid(letter, illegalInput)) {
+//                skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
+//            } else {
+//                illegalInput = true;
+//                return -1;
+//            }
+//        }
 
         Set<String> offerLetterSet = new HashSet<>();
         offerLetterSet.add("S");
