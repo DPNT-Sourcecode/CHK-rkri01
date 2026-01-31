@@ -160,7 +160,7 @@ public class CheckoutSolutionTest {
     }
     @Test
     public void checkoutTest37(){
-        assertThat(checkoutSolution.checkout("KK"), equalTo(150));
+        assertThat(checkoutSolution.checkout("KK"), equalTo(120));
     }
     @Test
     public void checkoutTest38(){
@@ -238,3 +238,4 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("STXYZSTXYZSTXY"), equalTo(214));
     }
 }
+
