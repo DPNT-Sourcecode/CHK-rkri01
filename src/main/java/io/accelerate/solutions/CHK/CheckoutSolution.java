@@ -1,7 +1,9 @@
 package io.accelerate.solutions.CHK;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import static io.accelerate.solutions.CHK.Prices.getPriceForSku;
 import static io.accelerate.solutions.CHK.Prices.populatePrices;
@@ -11,7 +13,7 @@ public class CheckoutSolution {
 
     public Integer checkout(String skus) {
         boolean illegalInput = false;
-        Map<String, Integer> skuCount = new HashMap<>();
+
         int priceForC = 0;
         int priceForD = 0;
         int priceForE = 0;
@@ -32,17 +34,17 @@ public class CheckoutSolution {
         int fullPriceY = 0;
         int fullPriceZ = 0;
 
-        for (int i = 0; i < skus.length(); i++) {
-            String letter = skus.substring(i, i+1);
-            if (CheckSku.isValid(letter, illegalInput)) {
-                skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
-            } else {
-                illegalInput = true;
-            }
-        }
-        /*
-        Offers come in here
-         */
+        Map<String, Integer> skuCount = getSkuCountFromSkus(skus, illegalInput);
+        Set<String> offerLetterSet = new HashSet<>();
+        offerLetterSet.add("S");
+        offerLetterSet.add("T");
+        offerLetterSet.add("X");
+        offerLetterSet.add("Y");
+        offerLetterSet.add("Z");
+
+
+
+
         if (Offers.isValidForOfferBuyXGetOneFree(skuCount,  "F", 2)) {
             Offers.updateSkuCountMapForOfferBuyXGetOneFree(skuCount, "F", 2);
         }
@@ -101,6 +103,17 @@ public class CheckoutSolution {
                     + fullPriceG + fullPriceI + fullPriceJ + fullPriceL + fullPriceM + fullPriceO
                     + fullPriceS + fullPriceT + fullPriceW + fullPriceX + fullPriceY + fullPriceZ;
         } else return -1;
+    }
 
+    private Map<String, Integer> getSkuCountFromSkus(String skus, boolean illegalInput){
+        Map<String, Integer> skuCount = new HashMap<>();
+        for (int i = 0; i < skus.length(); i++) {
+            String letter = skus.substring(i, i+1);
+            if (CheckSku.isValid(letter, illegalInput)) {
+                skuCount.put(letter, skuCount.getOrDefault(letter, 0) + 1);
+            } else illegalInput = true;
+        }
+        return skuCount;
     }
 }
+

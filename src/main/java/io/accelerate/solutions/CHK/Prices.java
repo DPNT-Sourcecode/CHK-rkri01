@@ -19,7 +19,7 @@ public class Prices {
         pricesPopulated.put("H", 10);
         pricesPopulated.put("I", 35);
         pricesPopulated.put("J", 60);
-        pricesPopulated.put("K", 80);
+        pricesPopulated.put("K", 70);
         pricesPopulated.put("L", 90);
         pricesPopulated.put("M", 15);
         pricesPopulated.put("N", 40);
@@ -27,14 +27,14 @@ public class Prices {
         pricesPopulated.put("P", 50);
         pricesPopulated.put("Q", 30);
         pricesPopulated.put("R", 50);
-        pricesPopulated.put("S", 30);
+        pricesPopulated.put("S", 20);
         pricesPopulated.put("T", 20);
         pricesPopulated.put("U", 40);
         pricesPopulated.put("V", 50);
         pricesPopulated.put("W", 20);
-        pricesPopulated.put("X", 90);
-        pricesPopulated.put("Y", 10);
-        pricesPopulated.put("Z", 50);
+        pricesPopulated.put("X", 17);
+        pricesPopulated.put("Y", 20);
+        pricesPopulated.put("Z", 21);
         return pricesPopulated;
     }
 
@@ -44,3 +44,4 @@ public class Prices {
         return number * prices.get(letter);
     }
 }
+
