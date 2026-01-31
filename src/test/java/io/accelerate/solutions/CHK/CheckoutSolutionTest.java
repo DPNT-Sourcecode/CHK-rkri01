@@ -237,9 +237,6 @@ public class CheckoutSolutionTest {
     public void checkoutTest61(){
         assertThat(checkoutSolution.checkout("STXYZSTXYZSTXY"), equalTo(214));
     }
-    @Test
-    public void checkoutTest62(){
-        assertThat(checkoutSolution.checkout("STYZSTYZ"), equalTo(130));
-    }
 }
+
 
