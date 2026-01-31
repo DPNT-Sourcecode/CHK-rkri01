@@ -78,7 +78,7 @@ public class CheckoutSolution {
         Reduced v = Offers.validOfferCheaperInMultiples(skuCountGroupOfferRemoved, prices, "V", 2, 90, 3, 130);
 
         SpecialOffer b = Offers.validOfferBuyXgetForCheaper(skuCountGroupOfferRemoved, prices, "B", 2, 45);
-        SpecialOffer k = Offers.validOfferBuyXgetForCheaper(skuCountGroupOfferRemoved, prices, "K", 2, 150);
+        SpecialOffer k = Offers.validOfferBuyXgetForCheaper(skuCountGroupOfferRemoved, prices, "K", 2, 120);
         SpecialOffer p = Offers.validOfferBuyXgetForCheaper(skuCountGroupOfferRemoved, prices, "P", 5, 200);
         SpecialOffer q = Offers.validOfferBuyXgetForCheaper(skuCountGroupOfferRemoved, prices, "Q", 3, 80);
 
@@ -127,6 +127,7 @@ public class CheckoutSolution {
         return skuCount;
     }
 }
+
 
 
 
