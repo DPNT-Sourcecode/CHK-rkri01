@@ -1,9 +1,23 @@
 package io.accelerate.solutions.CHK;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Offers {
+
+    public static Group costOfGroupOffer(Map<String, Integer> skuCount, Set<String> letters, int buyCount, int offerPrice) {
+        return new Group();
+    }
+
+    /*
+
+     */
+    public static NavigableSet<Item> createTreeSet(HashMap<String, Integer> prices, Set<String> letters){
+        TreeSet<Item> treeSet = new TreeSet<>();
+        for (String letter : letters) {
+            treeSet.add(new Item(letter, prices.get(letter)));
+        }
+        return treeSet.descendingSet();
+    }
 
     /*
     buyCount is how many are paid for, not including free ones
@@ -84,3 +98,4 @@ public class Offers {
     }
 
 }
+

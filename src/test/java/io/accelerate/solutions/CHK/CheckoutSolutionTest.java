@@ -230,5 +230,13 @@ public class CheckoutSolutionTest {
     public void checkoutTest59(){
         assertThat(checkoutSolution.checkout("STXYZSTXYZ"), equalTo(152));
     }
+    @Test
+    public void checkoutTest60(){
+        assertThat(checkoutSolution.checkout("STXYZSTXYZSTXYZ"), equalTo(225));
+    } @Test
+    public void checkoutTest61(){
+        assertThat(checkoutSolution.checkout("STXYZSTXYZSTXY"), equalTo(214));
+    }
 }
+
 
