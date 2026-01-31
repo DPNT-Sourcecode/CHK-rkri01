@@ -243,5 +243,8 @@ public class CheckoutSolutionTest {
     public void checkoutTest62(){
         assertThat(checkoutSolution.checkout("SSSZ"), equalTo(65));
     }
+    @Test
+    public void checkoutTest63(){
+        assertThat(checkoutSolution.checkout("CXYZYZC"), equalTo(122));
+    }
 }
-
